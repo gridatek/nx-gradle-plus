@@ -1,9 +1,26 @@
 {
   "name": "nx-gradle-plus",
   "version": "0.0.1",
+  "description": "Nx plugin for Gradle integration",
   "type": "commonjs",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
+  "keywords": [
+    "nx",
+    "gradle",
+    "nx-plugin",
+    "monorepo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gridatek/nx-gradle-plus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gridatek/nx-gradle-plus/issues"
+  },
+  "homepage": "https://github.com/gridatek/nx-gradle-plus#readme",
   "dependencies": {
     "tslib": "^2.3.0"
   }

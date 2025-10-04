@@ -103,15 +103,43 @@ The project uses GitHub Actions for continuous integration and automated mainten
 - Commit prefix: `chore(nx):`
 - Uses npm as package manager
 
-## Release Process
+### Commit Validation (`.github/workflows/validate-commits.yml`)
+- Validates all commits in pull requests
+- Enforces strict conventional commit format
+- PRs with invalid commits will fail CI
+- See [Commit Convention](./docs/COMMIT_CONVENTION.md) for rules
 
+## Publishing to NPM
+
+### Manual Release
 ```bash
-# Pre-version command runs all builds
+# 1. Create a version and tag
+npx nx release version [major|minor|patch]
+
+# 2. Build all projects (runs automatically via preVersionCommand)
 npx nx run-many -t build
 
-# Publish from dist directory
-npx nx nx-release-publish nx-gradle-plus
+# 3. Publish to NPM
+npx nx release publish
+
+# Or run all steps together
+npx nx release
 ```
+
+### Automated Publishing (`.github/workflows/publish.yml`)
+- Triggered automatically when pushing tags (e.g., `v1.0.0`)
+- Publishes to NPM with provenance
+- Requires `NPM_TOKEN` secret in GitHub repository settings
+
+### Setup NPM Token
+1. Create an NPM access token at https://www.npmjs.com/settings/YOUR_USERNAME/tokens
+2. Add it to GitHub repository secrets as `NPM_TOKEN`
+3. Update repository URL in `nx-gradle-plus/package.json`
+
+## Documentation
+
+- [Publishing Guide](./docs/PUBLISHING.md) - How to publish the plugin to npm
+- [Commit Convention](./docs/COMMIT_CONVENTION.md) - Strict commit message rules (enforced)
 
 ## Development Notes
 

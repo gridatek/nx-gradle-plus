@@ -2,7 +2,9 @@
   "name": "@nx-gradle-plus/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky"
+  },
   "private": true,
   "dependencies": {
     "@nx/devkit": "21.6.3"
@@ -35,7 +37,10 @@
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
     "verdaccio": "^6.0.5",
-    "@nx/plugin": "21.6.3"
+    "@nx/plugin": "21.6.3",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "husky": "^9.0.0"
   },
   "nx": {
     "includedScripts": []
