@@ -1,0 +1,12 @@
+package <%= groupId %>.<%= fileName %>;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class MainTest {
+    @Test
+    void testExample() {
+        assertTrue(true, "This test should pass");
+    }
+}

@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    <% if (projectType === 'application') { %>id 'application'<% } %>
+}
+
+group = '<%= groupId %>'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_<%= javaVersion %>
+    targetCompatibility = JavaVersion.VERSION_<%= javaVersion %>
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+<% if (projectType === 'application') { %>
+application {
+    mainClass = '<%= groupId %>.<%= className %>.Main'
+}
+<% } %>
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

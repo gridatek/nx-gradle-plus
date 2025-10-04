@@ -1,6 +1,16 @@
 # Publishing nx-gradle-plus to NPM
 
-This guide explains how to publish the nx-gradle-plus plugin to npm.
+This guide explains how to publish the **nx-gradle-plus** plugin to npm.
+
+## About nx-gradle-plus
+
+nx-gradle-plus enhances `@nx/gradle` with powerful features for advanced Gradle integration in Nx monorepos:
+
+- **🔍 Gradle Detection**: Automatically find and analyze Gradle projects in your workspace
+- **📊 Dependency Graph**: Build and visualize multi-module Gradle dependencies
+- **⚡ Smart Executors**: Run Gradle tasks with Nx caching integration
+- **🎯 Task Inference**: Auto-generate Nx targets from Gradle tasks
+- **🏗️ Project Generator**: Scaffold Gradle projects with wrapper setup
 
 ## Prerequisites
 
@@ -43,6 +53,7 @@ npx nx release version 1.2.3
 ```
 
 This will:
+
 - Update version in `nx-gradle-plus/package.json`
 - Create a git commit
 - Create a git tag (e.g., `v0.0.2`)
@@ -75,12 +86,14 @@ The repository includes `.github/workflows/publish.yml` that automatically publi
 ### Workflow Process:
 
 1. **Create and push a version:**
+
    ```bash
    npx nx release version patch
    git push --follow-tags
    ```
 
 2. **GitHub Actions will:**
+
    - Checkout the code
    - Install dependencies
    - Build the plugin
@@ -199,20 +212,24 @@ npm link nx-gradle-plus
 ## Troubleshooting
 
 ### "You do not have permission to publish"
+
 - Ensure you're logged in: `npm whoami`
 - Check package name isn't taken: https://www.npmjs.com/package/nx-gradle-plus
 - Verify npm token has publish permissions
 
 ### "Version already exists"
+
 - You can't republish the same version
 - Increment version: `npx nx release version patch`
 
 ### GitHub Action fails
+
 - Check NPM_TOKEN secret is set correctly
 - Verify token hasn't expired
 - Check GitHub Actions logs for details
 
 ### Build fails before publish
+
 - Run `npx nx build nx-gradle-plus` locally to debug
 - Check TypeScript compilation errors
 - Verify all dependencies are installed
@@ -235,6 +252,7 @@ npm view nx-gradle-plus
 ## NPM Provenance
 
 The publish workflow includes `NPM_CONFIG_PROVENANCE: true` which:
+
 - Links the package to the source code
 - Shows the exact commit that built the package
 - Provides transparency and security

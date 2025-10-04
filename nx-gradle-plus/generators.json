@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Initialize Gradle support in an Nx workspace"
+    },
+    "project": {
+      "factory": "./src/generators/project/generator",
+      "schema": "./src/generators/project/schema.json",
+      "description": "Generate a new Gradle project",
+      "aliases": ["app", "lib"]
+    },
+    "config": {
+      "factory": "./src/generators/config/generator",
+      "schema": "./src/generators/config/schema.json",
+      "description": "Add Gradle configuration to an existing project"
+    }
+  }
+}

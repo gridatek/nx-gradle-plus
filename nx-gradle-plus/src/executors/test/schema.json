@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Gradle Test Executor",
+  "description": "Run Gradle tests with coverage support",
+  "type": "object",
+  "properties": {
+    "gradlePath": {
+      "type": "string",
+      "description": "Path to the Gradle project"
+    },
+    "task": {
+      "type": "string",
+      "description": "Gradle test task to execute",
+      "default": "test"
+    },
+    "args": {
+      "type": "array",
+      "description": "Additional Gradle arguments",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "codeCoverage": {
+      "type": "boolean",
+      "description": "Enable code coverage",
+      "default": false
+    },
+    "coverageFormat": {
+      "type": "string",
+      "description": "Coverage report format",
+      "enum": ["xml", "html", "csv"],
+      "default": "xml"
+    },
+    "javaHome": {
+      "type": "string",
+      "description": "Java home directory"
+    },
+    "useWrapper": {
+      "type": "boolean",
+      "description": "Use Gradle wrapper if available",
+      "default": true
+    }
+  },
+  "required": ["gradlePath"]
+}

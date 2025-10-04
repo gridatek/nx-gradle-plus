@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Gradle Executor",
+  "description": "Run any Gradle task through Nx",
+  "type": "object",
+  "properties": {
+    "gradlePath": {
+      "type": "string",
+      "description": "Path to the Gradle project"
+    },
+    "args": {
+      "type": "array",
+      "description": "Gradle tasks and arguments",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "javaHome": {
+      "type": "string",
+      "description": "Java home directory"
+    },
+    "gradleOpts": {
+      "type": "array",
+      "description": "JVM options for Gradle",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "useWrapper": {
+      "type": "boolean",
+      "description": "Use Gradle wrapper if available",
+      "default": true
+    }
+  },
+  "required": ["gradlePath"]
+}
