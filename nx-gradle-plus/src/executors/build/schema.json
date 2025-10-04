@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Gradle Build Executor",
+  "description": "Build a Gradle project with Nx caching",
+  "type": "object",
+  "properties": {
+    "gradlePath": {
+      "type": "string",
+      "description": "Path to the Gradle project"
+    },
+    "task": {
+      "type": "string",
+      "description": "Gradle task to execute",
+      "default": "build"
+    },
+    "args": {
+      "type": "array",
+      "description": "Additional Gradle arguments",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "javaHome": {
+      "type": "string",
+      "description": "Java home directory (defaults to JAVA_HOME environment variable)"
+    },
+    "gradleOpts": {
+      "type": "array",
+      "description": "JVM options for Gradle",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "useWrapper": {
+      "type": "boolean",
+      "description": "Use Gradle wrapper if available",
+      "default": true
+    },
+    "outputs": {
+      "type": "array",
+      "description": "Output directories to cache",
+      "items": {
+        "type": "string"
+      },
+      "default": ["{projectRoot}/build"]
+    }
+  },
+  "required": ["gradlePath"]
+}

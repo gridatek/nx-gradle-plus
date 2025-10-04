@@ -102,6 +102,28 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 [Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+## nx-gradle-plus Features
+
+This workspace contains the **nx-gradle-plus** plugin - an enhanced Gradle integration for Nx with powerful features:
+
+### 🚀 Advanced Gradle Integration
+- **Auto-Detection**: Automatically discover Gradle projects in your workspace
+- **Dependency Graph**: Analyze and visualize multi-module Gradle dependencies
+- **Task Inference**: Auto-generate Nx targets from Gradle tasks
+- **Smart Caching**: Integrate Gradle builds with Nx computation cache
+
+### 🛠️ Generators
+- `project` - Generate Gradle applications or libraries with Gradle wrapper
+- `init` - Initialize Gradle support in an Nx workspace
+- `config` - Add Gradle configuration to existing projects
+
+### ⚡ Executors
+- `build` - Run Gradle builds with Nx caching
+- `test` - Execute Gradle tests with coverage support
+- `gradle` - Run any Gradle task through Nx
+
+See [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) for technical details.
+
 ## Useful links
 
 Learn more:

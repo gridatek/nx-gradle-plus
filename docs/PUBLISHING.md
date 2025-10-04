@@ -1,6 +1,16 @@
 # Publishing nx-gradle-plus to NPM
 
-This guide explains how to publish the nx-gradle-plus plugin to npm.
+This guide explains how to publish the **nx-gradle-plus** plugin to npm.
+
+## About nx-gradle-plus
+
+nx-gradle-plus enhances `@nx/gradle` with powerful features for advanced Gradle integration in Nx monorepos:
+
+- **🔍 Gradle Detection**: Automatically find and analyze Gradle projects in your workspace
+- **📊 Dependency Graph**: Build and visualize multi-module Gradle dependencies
+- **⚡ Smart Executors**: Run Gradle tasks with Nx caching integration
+- **🎯 Task Inference**: Auto-generate Nx targets from Gradle tasks
+- **🏗️ Project Generator**: Scaffold Gradle projects with wrapper setup
 
 ## Prerequisites
 

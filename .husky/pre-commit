@@ -1,1 +1,1 @@
-npx nx affected -t lint test --parallel=3
+npx nx format:write

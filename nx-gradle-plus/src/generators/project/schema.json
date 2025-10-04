@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "NxGradlePlusProject",
+  "title": "Generate a Gradle project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Project name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the name of the project?"
+    },
+    "directory": {
+      "type": "string",
+      "description": "Directory where the project is placed",
+      "default": "apps"
+    },
+    "projectType": {
+      "type": "string",
+      "description": "Type of project",
+      "enum": ["application", "library"],
+      "default": "application",
+      "x-prompt": "What type of project do you want to create?"
+    },
+    "gradleVersion": {
+      "type": "string",
+      "description": "Gradle version",
+      "default": "8.5"
+    },
+    "javaVersion": {
+      "type": "string",
+      "description": "Java version",
+      "default": "17",
+      "enum": ["11", "17", "21"]
+    },
+    "buildTool": {
+      "type": "string",
+      "description": "Build tool DSL",
+      "enum": ["gradle", "gradle-kotlin-dsl"],
+      "default": "gradle",
+      "x-prompt": "Which build script DSL do you want to use?"
+    },
+    "groupId": {
+      "type": "string",
+      "description": "Maven group ID",
+      "default": "com.example"
+    },
+    "initWrapper": {
+      "type": "boolean",
+      "description": "Initialize Gradle wrapper",
+      "default": true
+    },
+    "tags": {
+      "type": "string",
+      "description": "Tags to categorize the project (comma-separated)"
+    }
+  },
+  "required": ["name"]
+}
