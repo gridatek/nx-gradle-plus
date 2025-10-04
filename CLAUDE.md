@@ -109,6 +109,13 @@ The project uses GitHub Actions for continuous integration and automated mainten
 - PRs with invalid commits will fail CI
 - See [Commit Convention](./docs/COMMIT_CONVENTION.md) for rules
 
+### E2E Nightly Tests (`.github/workflows/e2e-nightly.yml`)
+- Runs every night at 2 AM UTC (or manually via workflow_dispatch)
+- Tests across multiple operating systems: Ubuntu, macOS, Windows
+- Tests Node.js versions: 18, 20, 22
+- Creates GitHub issue automatically if tests fail
+- Uploads test artifacts on failure for debugging
+
 ## Publishing to NPM
 
 ### Manual Release

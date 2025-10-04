@@ -74,6 +74,16 @@ npx nx g ci-workflow
 
 [Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+## Testing
+
+### E2E Testing
+This project includes comprehensive end-to-end testing:
+- **CI**: E2E tests run on every PR
+- **Nightly**: Full cross-platform tests run every night
+  - Operating Systems: Ubuntu, macOS, Windows
+  - Node.js versions: 18, 20, 22
+- **Manual**: Run `npx nx e2e nx-gradle-plus-e2e`
+
 ## Contributing
 
 This project enforces **strict conventional commits**. All commits must follow the format:
