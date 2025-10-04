@@ -1,0 +1,36 @@
+name: Nx Migrate
+
+on:
+  schedule:
+    # Run every Monday at 2 AM UTC
+    - cron: '0 2 * * 1'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Run Nx Migrate
+        uses: gridatek/nx-migrate-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          package-manager: npm
+          nx-version: latest
+          pr-labels: 'dependencies,nx-migration'
+          commit-message-prefix: 'chore(nx):'
+          create-missing-labels: true
