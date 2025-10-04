@@ -28,7 +28,10 @@ export function buildDependencyGraph(
   // Second pass: Extract dependencies
   for (const project of projects) {
     const build = parseBuildGradle(project.buildFile);
-    const projectDeps = extractProjectDependencies(build.dependencies, projects);
+    const projectDeps = extractProjectDependencies(
+      build.dependencies,
+      projects
+    );
 
     const node = nodes.get(project.name)!;
     node.dependencies = projectDeps;
@@ -77,7 +80,10 @@ function resolveProjectName(
     if (pathParts.length === projectParts.length) {
       let matches = true;
       for (let i = 0; i < pathParts.length; i++) {
-        if (pathParts[i] !== projectParts[projectParts.length - pathParts.length + i]) {
+        if (
+          pathParts[i] !==
+          projectParts[projectParts.length - pathParts.length + i]
+        ) {
           matches = false;
           break;
         }
@@ -94,9 +100,7 @@ function resolveProjectName(
 /**
  * Detect circular dependencies in the graph
  */
-export function detectCircularDependencies(
-  graph: DependencyGraph
-): string[][] {
+export function detectCircularDependencies(graph: DependencyGraph): string[][] {
   const cycles: string[][] = [];
   const visited = new Set<string>();
   const recursionStack = new Set<string>();

@@ -29,7 +29,10 @@ export function inferTargetsFromGradle(
     },
     test: {
       executor: 'nx-gradle-plus:test',
-      outputs: ['{projectRoot}/build/test-results', '{projectRoot}/build/reports'],
+      outputs: [
+        '{projectRoot}/build/test-results',
+        '{projectRoot}/build/reports',
+      ],
       options: { task: 'test' },
     },
     assemble: {

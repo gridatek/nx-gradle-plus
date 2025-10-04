@@ -12,8 +12,16 @@ export function parseBuildGradle(buildFilePath: string): GradleBuild {
     plugins: extractPlugins(content, isKotlin),
     dependencies: extractDependencies(content, isKotlin),
     repositories: extractRepositories(content, isKotlin),
-    sourceCompatibility: extractProperty(content, 'sourceCompatibility', isKotlin),
-    targetCompatibility: extractProperty(content, 'targetCompatibility', isKotlin),
+    sourceCompatibility: extractProperty(
+      content,
+      'sourceCompatibility',
+      isKotlin
+    ),
+    targetCompatibility: extractProperty(
+      content,
+      'targetCompatibility',
+      isKotlin
+    ),
     group: extractProperty(content, 'group', isKotlin),
     version: extractProperty(content, 'version', isKotlin),
   };
@@ -51,10 +59,7 @@ function extractPlugins(content: string, isKotlin: boolean): string[] {
         /id\s*\(\s*["']([^"']+)["']\s*\)/g,
         /kotlin\s*\(\s*["']([^"']+)["']\s*\)/g,
       ]
-    : [
-        /id\s+["']([^"']+)["']/g,
-        /apply\s+plugin:\s*["']([^"']+)["']/g,
-      ];
+    : [/id\s+["']([^"']+)["']/g, /apply\s+plugin:\s*["']([^"']+)["']/g];
 
   for (const pattern of patterns) {
     let match;
@@ -137,7 +142,12 @@ function extractRepositories(content: string, isKotlin: boolean): string[] {
   const repoBlock = repoMatch[1];
 
   // Common repository names
-  const commonRepos = ['mavenCentral', 'mavenLocal', 'google', 'gradlePluginPortal'];
+  const commonRepos = [
+    'mavenCentral',
+    'mavenLocal',
+    'google',
+    'gradlePluginPortal',
+  ];
 
   for (const repo of commonRepos) {
     if (repoBlock.includes(repo)) {

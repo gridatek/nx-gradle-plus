@@ -1,4 +1,8 @@
-import { buildDependencyGraph, detectCircularDependencies, getTopologicalSort } from './dependency-graph';
+import {
+  buildDependencyGraph,
+  detectCircularDependencies,
+  getTopologicalSort,
+} from './dependency-graph';
 import type { GradleProject } from './types';
 
 jest.mock('./gradle-parser');
@@ -81,9 +85,22 @@ describe('dependency-graph', () => {
     it('should return projects in build order', () => {
       const graph = {
         nodes: new Map([
-          ['core', { projectName: 'core', projectPath: 'core', dependencies: [] }],
-          ['api', { projectName: 'api', projectPath: 'api', dependencies: ['core'] }],
-          ['web', { projectName: 'web', projectPath: 'web', dependencies: ['api', 'core'] }],
+          [
+            'core',
+            { projectName: 'core', projectPath: 'core', dependencies: [] },
+          ],
+          [
+            'api',
+            { projectName: 'api', projectPath: 'api', dependencies: ['core'] },
+          ],
+          [
+            'web',
+            {
+              projectName: 'web',
+              projectPath: 'web',
+              dependencies: ['api', 'core'],
+            },
+          ],
         ]),
         edges: new Map([
           ['core', []],

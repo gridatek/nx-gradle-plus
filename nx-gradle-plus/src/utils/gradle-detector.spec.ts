@@ -1,4 +1,8 @@
-import { detectGradleWrapper, getGradleCommand, isGradleProject } from './gradle-detector';
+import {
+  detectGradleWrapper,
+  getGradleCommand,
+  isGradleProject,
+} from './gradle-detector';
 import { vol } from 'memfs';
 
 jest.mock('fs');

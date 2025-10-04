@@ -29,6 +29,7 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
 
 To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
+
 ```sh
 npx nx add @nx/react
 ```
@@ -77,7 +78,9 @@ npx nx g ci-workflow
 ## Testing
 
 ### E2E Testing
+
 This project includes comprehensive end-to-end testing:
+
 - **CI**: E2E tests run on every PR
 - **Nightly**: Full cross-platform tests run every night
   - Operating Systems: Ubuntu, macOS, Windows
@@ -107,17 +110,20 @@ Nx Console is an editor extension that enriches your developer experience. It le
 This workspace contains the **nx-gradle-plus** plugin - an enhanced Gradle integration for Nx with powerful features:
 
 ### 🚀 Advanced Gradle Integration
+
 - **Auto-Detection**: Automatically discover Gradle projects in your workspace
 - **Dependency Graph**: Analyze and visualize multi-module Gradle dependencies
 - **Task Inference**: Auto-generate Nx targets from Gradle tasks
 - **Smart Caching**: Integrate Gradle builds with Nx computation cache
 
 ### 🛠️ Generators
+
 - `project` - Generate Gradle applications or libraries with Gradle wrapper
 - `init` - Initialize Gradle support in an Nx workspace
 - `config` - Add Gradle configuration to existing projects
 
 ### ⚡ Executors
+
 - `build` - Run Gradle builds with Nx caching
 - `test` - Execute Gradle tests with coverage support
 - `gradle` - Run any Gradle task through Nx
@@ -133,6 +139,7 @@ Learn more:
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 And join the Nx community:
+
 - [Discord](https://go.nx.dev/community)
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)

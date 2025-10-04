@@ -99,7 +99,9 @@ function normalizeOptions(
 
   const projectName = projectDirectory.replace(/\//g, '-');
   const projectRoot = projectDirectory;
-  const parsedTags = options.tags ? options.tags.split(',').map((s) => s.trim()) : [];
+  const parsedTags = options.tags
+    ? options.tags.split(',').map((s) => s.trim())
+    : [];
   const buildFileExt = options.buildTool === 'gradle-kotlin-dsl' ? 'kts' : '';
 
   return {
@@ -119,19 +121,20 @@ function normalizeOptions(
 }
 
 function initializeGradleWrapper(options: NormalizedSchema): void {
-  console.log(`\n🔧 Initializing Gradle wrapper in ${options.projectRoot}...\n`);
+  console.log(
+    `\n🔧 Initializing Gradle wrapper in ${options.projectRoot}...\n`
+  );
 
   try {
-    execSync(
-      `gradle wrapper --gradle-version ${options.gradleVersion}`,
-      {
-        cwd: options.projectRoot,
-        stdio: 'inherit',
-      }
-    );
+    execSync(`gradle wrapper --gradle-version ${options.gradleVersion}`, {
+      cwd: options.projectRoot,
+      stdio: 'inherit',
+    });
 
     console.log(`\n✅ Gradle wrapper initialized successfully\n`);
   } catch (error) {
-    console.error(`\n⚠️  Failed to initialize Gradle wrapper. You can run 'gradle wrapper' manually.\n`);
+    console.error(
+      `\n⚠️  Failed to initialize Gradle wrapper. You can run 'gradle wrapper' manually.\n`
+    );
   }
 }

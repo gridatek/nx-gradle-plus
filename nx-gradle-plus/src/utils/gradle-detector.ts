@@ -15,7 +15,11 @@ export function findGradleProjects(workspaceRoot: string): GradleProject[] {
       const fullPath = join(dir, entry);
 
       // Skip node_modules and hidden directories
-      if (entry === 'node_modules' || entry.startsWith('.') || entry === 'dist') {
+      if (
+        entry === 'node_modules' ||
+        entry.startsWith('.') ||
+        entry === 'dist'
+      ) {
         continue;
       }
 
@@ -90,7 +94,12 @@ export function detectGradleProject(
 export function detectGradleWrapper(projectPath: string): string | null {
   const gradlewUnix = join(projectPath, 'gradlew');
   const gradlewWindows = join(projectPath, 'gradlew.bat');
-  const wrapperJar = join(projectPath, 'gradle', 'wrapper', 'gradle-wrapper.jar');
+  const wrapperJar = join(
+    projectPath,
+    'gradle',
+    'wrapper',
+    'gradle-wrapper.jar'
+  );
 
   if (existsSync(wrapperJar)) {
     // Prefer platform-specific wrapper

@@ -111,9 +111,7 @@ describe('nx-gradle-plus e2e', () => {
     it('should cache build results', async () => {
       const project = uniq('gradle-cache');
 
-      runNxCommand(
-        `generate nx-gradle-plus:project ${project}`
-      );
+      runNxCommand(`generate nx-gradle-plus:project ${project}`);
 
       // First build
       const result1 = runNxCommand(`build ${project}`);
